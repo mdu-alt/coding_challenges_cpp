@@ -9,4 +9,5 @@ find_package(GTest)
 include(GoogleTest)
 
 enable_testing()
+add_subdirectory(BinaryTreeHeight)
 add_subdirectory(LargestBinaryGap)
