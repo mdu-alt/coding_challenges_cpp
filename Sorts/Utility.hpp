@@ -1,18 +1,17 @@
-#include <algorithm>
-#include <numeric>
-#include <random>
-#include <utility>
 #include <vector>
 
-inline std::pair<std::vector<int>, std::vector<int>> make_vectors(int size)
-{
-    std::vector<int> sorted(size);
+const std::vector<int> unsorted_1{ 5 };
 
-    std::iota(std::begin(sorted), std::end(sorted), 0);
+const std::vector<int> unsorted_10{ 18, 22, 3, 37, 44, 32, 3, 10, 32, 7 };
 
-    std::vector<int> unsorted{ sorted };
+const std::vector<int> unsorted_50{ 138, 149, 78,  246, 138, 194, 9,   234, 21,  174, 5,   101, 35,  201, 3,   242, 4,
+                                    63,  211, 48,  174, 158, 138, 192, 68,  214, 131, 247, 189, 121, 201, 227, 183, 33,
+                                    138, 201, 153, 175, 194, 208, 180, 1,   234, 211, 155, 188, 87,  194, 5,   17 };
 
-    std::shuffle(std::begin(unsorted), std::end(unsorted), std::mt19937{ std::random_device{}() });
-
-    return { sorted, unsorted };
-}
+const std::vector<int> unsorted_100{ 335, 314, 328, 176, 345, 24,  335, 213, 225, 483, 50,  261, 94,  235, 10,
+                                     169, 323, 393, 84,  275, 68,  133, 35,  85,  325, 381, 419, 427, 62,  308,
+                                     373, 373, 395, 297, 193, 470, 138, 321, 304, 28,  459, 91,  441, 356, 86,
+                                     327, 259, 436, 405, 315, 392, 243, 153, 301, 355, 266, 433, 303, 166, 299,
+                                     143, 339, 262, 341, 349, 143, 394, 27,  40,  57,  101, 259, 291, 236, 274,
+                                     255, 177, 290, 342, 277, 355, 17,  386, 72,  404, 287, 320, 486, 331, 333,
+                                     211, 254, 61,  162, 131, 397, 228, 157, 110, 67 };

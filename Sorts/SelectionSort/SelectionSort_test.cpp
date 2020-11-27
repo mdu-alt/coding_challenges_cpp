@@ -1,7 +1,4 @@
 #include <algorithm>
-#include <numeric>
-#include <random>
-#include <utility>
 #include <vector>
 
 #include <gtest/gtest.h>
@@ -11,28 +8,50 @@
 
 TEST(SelectionSort, empty)
 {
-    auto [sorted, unsorted] = make_vectors(0);
+    std::vector<int> unsorted;
+    std::vector<int> sorted{ unsorted };
+
+    std::ranges::sort(sorted);
 
     ASSERT_EQ(selection_sort(unsorted), sorted);
 }
 
 TEST(SelectionSort, one_element)
 {
-    auto [sorted, unsorted] = make_vectors(1);
+    std::vector<int> unsorted{ unsorted_1 };
+    std::vector<int> sorted{ unsorted };
+
+    std::ranges::sort(sorted);
 
     ASSERT_EQ(selection_sort(unsorted), sorted);
 }
 
 TEST(SelectionSort, ten_element)
 {
-    auto [sorted, unsorted] = make_vectors(10);
+    std::vector<int> unsorted{ unsorted_10 };
+    std::vector<int> sorted{ unsorted };
+
+    std::ranges::sort(sorted);
 
     ASSERT_EQ(selection_sort(unsorted), sorted);
 }
 
 TEST(SelectionSort, fifty_element)
 {
-    auto [sorted, unsorted] = make_vectors(50);
+    std::vector<int> unsorted{ unsorted_50 };
+    std::vector<int> sorted{ unsorted };
+
+    std::ranges::sort(sorted);
+
+    ASSERT_EQ(selection_sort(unsorted), sorted);
+}
+
+TEST(SelectionSort, hundred_element)
+{
+    std::vector<int> unsorted{ unsorted_100 };
+    std::vector<int> sorted{ unsorted };
+
+    std::ranges::sort(sorted);
 
     ASSERT_EQ(selection_sort(unsorted), sorted);
 }
