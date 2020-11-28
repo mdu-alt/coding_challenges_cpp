@@ -3,6 +3,6 @@
 
 #include <vector>
 
-std::vector<int> bubble_sort(std::vector<int>& A) noexcept;
+void bubble_sort(std::vector<int>& A) noexcept;
 
 #endif

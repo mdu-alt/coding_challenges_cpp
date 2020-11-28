@@ -2,19 +2,17 @@
 
 #include <algorithm>
 
-std::vector<int> selection_sort(std::vector<int>& A) noexcept
+void selection_sort(std::vector<int>& A) noexcept
 {
-    for (auto it_out = std::begin(A); it_out != std::end(A); it_out++) {
-        auto index_min = it_out;
+    for (auto i = A.begin(); i != A.end(); ++i) {
+        auto min_index = i;
 
-        for (auto it_in = it_out; it_in != std::end(A); it_in++) {
-            if (*it_in < *index_min) {
-                index_min = it_in;
+        for (auto j = i; j != A.end(); ++j) {
+            if (*j < *min_index) {
+                min_index = j;
             }
         }
 
-        std::iter_swap(it_out, index_min);
+        std::iter_swap(i, min_index);
     }
-
-    return A;
 }

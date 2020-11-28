@@ -1,24 +1,21 @@
 #include "BubbleSort.hpp"
 
 #include <algorithm>
-#include <iterator>
 
-std::vector<int> bubble_sort(std::vector<int>& A) noexcept
+void bubble_sort(std::vector<int>& A) noexcept
 {
-    for (auto it_reverse = std::rbegin(A); it_reverse != std::rend(A); ++it_reverse) {
+    for (auto i = A.rbegin(); i != A.rend(); ++i) {
         bool sorted{ true };
 
-        for (auto it = std::begin(A); it != (it_reverse.base() - 1); ++it) {
-            if (*it > *(it + 1)) {
-                std::iter_swap(it, it + 1);
+        for (auto j = A.begin(); j != (i.base() - 1); ++j) {
+            if (*j > *(j + 1)) {
+                std::iter_swap(j, j + 1);
                 sorted = false;
             }
         }
 
         if (sorted) {
-            return A;
+            break;
         }
     }
-
-    return A;
 }
