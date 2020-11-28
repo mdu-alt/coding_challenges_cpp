@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../Utility.hpp"
+#include "../Constants.hpp"
 #include "MergeSort.hpp"
 
 TEST(MergeSort, empty)

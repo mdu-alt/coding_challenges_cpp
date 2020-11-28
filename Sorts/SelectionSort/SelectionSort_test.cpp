@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../Utility.hpp"
+#include "../Constants.hpp"
 #include "SelectionSort.hpp"
 
 TEST(SelectionSort, empty)
