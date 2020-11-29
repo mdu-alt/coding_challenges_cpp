@@ -2,16 +2,27 @@
 
 #include <algorithm>
 
+using Iterator = std::vector<int>::iterator;
+
+void quick_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noexcept;
+
 void quick_sort(std::vector<int>& A) noexcept
 {
-    if (A.size() <= 1) {
+    quick_sort_internal(A, A.begin(), A.end());
+}
+
+// =====================================================================================================================
+
+void quick_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noexcept
+{
+    if (std::distance(begin, end) <= 1) {
         return;
     }
 
-    auto pivot = A.end() - 1;
-    auto tracker = A.begin();
+    auto pivot = end - 1;
+    auto tracker = begin;
 
-    for (auto i = A.begin(); i != A.end(); ++i) {
+    for (auto i = begin; i != end; ++i) {
         if (*i < *pivot) {
             std::iter_swap(tracker, i);
             ++tracker;
@@ -20,13 +31,6 @@ void quick_sort(std::vector<int>& A) noexcept
 
     std::iter_swap(tracker, pivot);
 
-    std::vector<int> left(A.begin(), tracker);
-    std::vector<int> right(tracker + 1, A.end());
-
-    quick_sort(left);
-    quick_sort(right);
-
-    A.assign(left.begin(), left.end());
-    A.push_back(*tracker);
-    A.insert(A.end(), right.begin(), right.end());
+    quick_sort_internal(A, begin, tracker);
+    quick_sort_internal(A, tracker + 1, end);
 }
