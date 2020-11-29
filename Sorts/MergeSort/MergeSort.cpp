@@ -1,41 +1,54 @@
 #include "MergeSort.hpp"
 
 #include <algorithm>
+#include <iterator>
+
+using Iterator = std::vector<int>::iterator;
+
+void merge_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noexcept;
 
 void merge_sort(std::vector<int>& A) noexcept
 {
-    if (A.size() <= 1) {
+    merge_sort_internal(A, A.begin(), A.end());
+}
+
+// =====================================================================================================================
+
+void merge_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noexcept
+{
+    auto size = std::distance(begin, end);
+
+    if (size <= 1) {
         return;
     }
 
-    std::vector<int> left(A.begin(), A.begin() + (A.size() / 2));
-    std::vector<int> right(A.begin() + (A.size() / 2), A.end());
+    auto boundary = begin + (size / 2);
 
-    merge_sort(left);
-    merge_sort(right);
+    merge_sort_internal(A, begin, boundary);
+    merge_sort_internal(A, boundary, end);
 
-    auto i = left.begin();
-    auto j = right.begin();
+    auto i = begin;
+    auto j = boundary;
 
     std::vector<int> sorted;
 
-    while (i != left.end() && j != right.end()) {
+    while (i != boundary && j != end) {
         if (*i < *j) {
-            sorted.push_back(*i);
+            sorted.emplace_back(*i);
             ++i;
         }
         else {
-            sorted.push_back(*j);
+            sorted.emplace_back(*j);
             ++j;
         }
     }
 
-    if (i != left.end()) {
-        sorted.insert(sorted.end(), i, left.end());
+    if (i != boundary) {
+        sorted.insert(sorted.end(), i, boundary);
     }
-    else if (j != right.end()) {
-        sorted.insert(sorted.end(), j, right.end());
+    else if (j != end) {
+        sorted.insert(sorted.end(), j, end);
     }
 
-    A = sorted;
+    std::move(sorted.begin(), sorted.end(), begin);
 }
