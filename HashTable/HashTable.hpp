@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <exception>
 #include <functional>
 #include <list>
 #include <utility>
@@ -24,7 +25,7 @@ class Hash_table final {
         auto record = std::find_if(list.begin(), list.end(), std::bind(find_key, std::placeholders::_1, key));
 
         if (record != list.end()) {
-            record->second = value;
+            throw std::invalid_argument{ "ERROR: {key,value} already exists" };
         }
         else {
             list.push_back({ key, value });
@@ -41,7 +42,20 @@ class Hash_table final {
             return record->second;
         }
         else {
-            throw std::out_of_range{ "ERROR: no such key" };
+            throw std::invalid_argument{ "ERROR: no such key" };
+        }
+    }
+
+    void set(const K& key, const V& value)
+    {
+        auto& list = m_buckets.at(hash_function(key));
+        auto record = std::find_if(list.begin(), list.end(), std::bind(find_key, std::placeholders::_1, key));
+
+        if (record != list.end()) {
+            record->second = value;
+        }
+        else {
+            throw std::invalid_argument{ "ERROR: no such key" };
         }
     }
 
@@ -58,13 +72,7 @@ class Hash_table final {
 
     bool is_empty() const noexcept
     {
-        for (auto&& e : std::as_const(m_buckets)) {
-            if (!e.empty()) {
-                return false;
-            }
-        }
-
-        return true;
+        return m_count == 0;
     }
 
   private:
