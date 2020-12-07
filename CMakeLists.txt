@@ -10,6 +10,7 @@ include(GoogleTest)
 
 enable_testing()
 add_subdirectory(BinaryTreeHeight)
+add_subdirectory(GroupAnagrams)
 add_subdirectory(HashTable)
 add_subdirectory(LargestBinaryGap)
 add_subdirectory(Sorts/BubbleSort)
