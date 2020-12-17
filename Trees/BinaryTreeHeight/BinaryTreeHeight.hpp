@@ -5,10 +5,7 @@ struct Node final {
     Node* left_child{ nullptr };
     Node* right_child{ nullptr };
 
-    ~Node()
-    {
-        delete left_child, right_child;
-    }
+    ~Node() { delete left_child, right_child; }
 };
 
 using Tree = Node;
