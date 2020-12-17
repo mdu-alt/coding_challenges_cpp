@@ -2,20 +2,27 @@
 
 #include <stack>
 
-int nested_parentheses(const std::string& string) noexcept
+int count_pairs(std::string_view string) noexcept
 {
     std::stack<char> stack;
     int count{ 0 };
 
-    for (auto&& char_ : string) {
-        if (char_ == ')' && !stack.empty() && stack.top() == '(') {
+    for (auto&& ch : string) {
+        if (ch == ')' && !stack.empty() && stack.top() == '(') {
             stack.pop();
             count++;
         }
         else {
-            stack.push(char_);
+            stack.push(ch);
         }
     }
 
     return count;
+}
+
+// =====================================================================================================================
+
+int count_orphan(std::string_view string) noexcept
+{
+    return string.size() - 2 * count_pairs(string);
 }

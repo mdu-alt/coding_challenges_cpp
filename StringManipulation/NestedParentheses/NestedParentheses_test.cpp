@@ -6,37 +6,42 @@
 
 TEST(NestedParentheses, empty_string)
 {
-    std::string string;
+    const std::string string;
 
-    ASSERT_EQ(nested_parentheses(string), 0);
+    ASSERT_EQ(count_pairs(string), 0);
+    ASSERT_EQ(count_orphan(string), 0);
 }
 
-TEST(NestedParentheses, one_nest)
+TEST(NestedParentheses, single_nest)
 {
-    std::string string{ "()" };
+    const std::string string{ "()" };
 
-    ASSERT_EQ(nested_parentheses(string), 1);
+    ASSERT_EQ(count_pairs(string), 1);
+    ASSERT_EQ(count_orphan(string), 0);
 }
 
 TEST(NestedParentheses, multi_nest)
 {
-    std::string string{ "(((())))" };
+    const std::string string{ "(((())))" };
 
-    ASSERT_EQ(nested_parentheses(string), 4);
+    ASSERT_EQ(count_pairs(string), 4);
+    ASSERT_EQ(count_orphan(string), 0);
 }
 
 TEST(NestedParentheses, no_nest)
 {
-    std::string string{ "))((" };
+    const std::string string{ "))((" };
 
-    ASSERT_EQ(nested_parentheses(string), 0);
+    ASSERT_EQ(count_pairs(string), 0);
+    ASSERT_EQ(count_orphan(string), 4);
 }
 
-TEST(NestedParentheses, complex_string)
+TEST(NestedParentheses, complex_nest)
 {
-    std::string string{ ")(()()))())(" };
+    const std::string string{ ")(()()))())(" };
 
-    ASSERT_EQ(nested_parentheses(string), 4);
+    ASSERT_EQ(count_pairs(string), 4);
+    ASSERT_EQ(count_orphan(string), 4);
 }
 
 int main(int argc, char** argv)
