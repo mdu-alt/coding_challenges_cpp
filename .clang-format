@@ -3,6 +3,7 @@ Language: Cpp
 BasedOnStyle: Microsoft
 Standard: c++20
 
+AllowShortFunctionsOnASingleLine: Inline
 AlwaysBreakTemplateDeclarations: Yes
 BreakBeforeBraces: Stroustrup
 Cpp11BracedListStyle: false
