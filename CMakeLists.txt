@@ -14,7 +14,7 @@ add_subdirectory(HashTable)
 add_subdirectory(LargestBinaryGap)
 add_subdirectory(Sorts)
 add_subdirectory(Strings)
-add_subdirectory(Trees/BinaryTreeHeight)
+add_subdirectory(Trees)
 
 find_package(Doxygen)
 if(DOXYGEN_FOUND)
