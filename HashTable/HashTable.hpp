@@ -13,10 +13,9 @@ template <typename K, typename V>
 class Hash_table final {
   public:
     using Hash_node = std::pair<K, V>;
+    using Buckets = std::list<Hash_node>;
 
-    Hash_table() : m_buckets(m_size)
-    {
-    }
+    Hash_table() : m_buckets(m_size) {}
     ~Hash_table() = default;
 
     void add(const K& key, const V& value)
@@ -65,33 +64,24 @@ class Hash_table final {
         m_count -= list.remove_if(std::bind(find_key, std::placeholders::_1, key));
     }
 
-    int size() const noexcept
-    {
-        return m_count;
-    }
+    int size() const noexcept { return m_count; }
 
-    bool is_empty() const noexcept
-    {
-        return m_count == 0;
-    }
+    bool is_empty() const noexcept { return m_count == 0; }
 
   private:
     int hash_function(const K& key) const noexcept
     {
-        int hash = std::hash<K>{}(key);
+        auto hash = std::hash<K>{}(key);
 
-        return std::abs(hash % m_size);
+        return std::abs(int(hash % m_size));
     }
 
-    static bool find_key(const Hash_node& a, const K& key) noexcept
-    {
-        return a.first == key;
-    }
+    static bool find_key(const Hash_node& a, const K& key) noexcept { return a.first == key; }
 
     const int m_size{ 100 };
 
     int m_count{ 0 };
-    std::vector<std::list<Hash_node>> m_buckets;
+    std::vector<Buckets> m_buckets;
 };
 
 #endif

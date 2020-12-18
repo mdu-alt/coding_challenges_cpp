@@ -2,16 +2,13 @@
 
 void reverse(std::string& string) noexcept
 {
-    auto middle = string.begin();
-    std::advance(middle, string.size() / 2);
-
     auto i = string.begin();
-    auto j = string.rbegin();
+    auto j = string.end() - 1;
 
-    while (i != middle) {
+    while (std::distance(i, j) > 0) {
         std::iter_swap(i, j);
 
         ++i;
-        ++j;
+        --j;
     }
 }
