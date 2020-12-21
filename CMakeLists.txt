@@ -9,7 +9,6 @@ find_package(GTest REQUIRED)
 include(GoogleTest)
 enable_testing()
 
-add_subdirectory(GroupAnagrams)
 add_subdirectory(HashTable)
 add_subdirectory(LargestBinaryGap)
 add_subdirectory(Sorts)
