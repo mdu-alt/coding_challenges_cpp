@@ -10,7 +10,7 @@
  */
 
 /**
- *
+ * @brief Convert a string of roman numerals into decimal.
  */
 int roman_to_decimal(std::string_view roman) noexcept;
 
