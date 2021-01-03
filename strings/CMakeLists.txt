@@ -8,6 +8,9 @@ add_executable(strings
     nested_parentheses_test.cpp
     nested_parentheses.cpp
     nested_parentheses.hpp
+    repeated_characters_test.cpp
+    repeated_characters.cpp
+    repeated_characters.hpp
 
     main.cpp
 )
