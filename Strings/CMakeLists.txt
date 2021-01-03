@@ -1,3 +1,0 @@
-add_subdirectory(AlmostPalindromes)
-add_subdirectory(GroupAnagrams)
-add_subdirectory(NestedParentheses)

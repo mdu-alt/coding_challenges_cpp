@@ -13,7 +13,6 @@ add_subdirectory(DataStructures)
 add_subdirectory(Numbers)
 add_subdirectory(Sorts)
 add_subdirectory(strings)
-add_subdirectory(Strings)
 add_subdirectory(Trees)
 
 find_package(Doxygen)
