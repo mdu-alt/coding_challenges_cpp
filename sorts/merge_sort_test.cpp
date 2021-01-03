@@ -3,13 +3,13 @@
 
 #include <gtest/gtest.h>
 
-#include "../Constants.hpp"
-#include "MergeSort.hpp"
+#include "constants.hpp"
+#include "merge_sort.hpp"
 
 TEST(MergeSort, empty)
 {
     std::vector<int> unsorted;
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> sorted { unsorted };
 
     merge_sort(unsorted);
     std::ranges::sort(sorted);
@@ -19,8 +19,8 @@ TEST(MergeSort, empty)
 
 TEST(MergeSort, one_element)
 {
-    std::vector<int> unsorted{ unsorted_1 };
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> unsorted { unsorted_1 };
+    std::vector<int> sorted { unsorted };
 
     merge_sort(unsorted);
     std::ranges::sort(sorted);
@@ -30,8 +30,8 @@ TEST(MergeSort, one_element)
 
 TEST(MergeSort, ten_element)
 {
-    std::vector<int> unsorted{ unsorted_10 };
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> unsorted { unsorted_10 };
+    std::vector<int> sorted { unsorted };
 
     merge_sort(unsorted);
     std::ranges::sort(sorted);
@@ -41,8 +41,8 @@ TEST(MergeSort, ten_element)
 
 TEST(MergeSort, fifty_element)
 {
-    std::vector<int> unsorted{ unsorted_50 };
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> unsorted { unsorted_50 };
+    std::vector<int> sorted { unsorted };
 
     merge_sort(unsorted);
     std::ranges::sort(sorted);
@@ -52,18 +52,11 @@ TEST(MergeSort, fifty_element)
 
 TEST(MergeSort, hundred_element)
 {
-    std::vector<int> unsorted{ unsorted_100 };
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> unsorted { unsorted_100 };
+    std::vector<int> sorted { unsorted };
 
     merge_sort(unsorted);
     std::ranges::sort(sorted);
 
     ASSERT_EQ(unsorted, sorted);
-}
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
 }

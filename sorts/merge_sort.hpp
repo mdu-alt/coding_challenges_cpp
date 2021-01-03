@@ -1,5 +1,5 @@
-#ifndef MERGE_SORT_HPP
-#define MERGE_SORT_HPP
+#ifndef SORTS__MERGE_SORT_HPP
+#define SORTS__MERGE_SORT_HPP
 
 #include <vector>
 

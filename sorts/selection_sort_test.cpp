@@ -3,13 +3,13 @@
 
 #include <gtest/gtest.h>
 
-#include "../Constants.hpp"
-#include "SelectionSort.hpp"
+#include "constants.hpp"
+#include "selection_sort.hpp"
 
 TEST(SelectionSort, empty)
 {
     std::vector<int> unsorted;
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> sorted { unsorted };
 
     selection_sort(unsorted);
     std::ranges::sort(sorted);
@@ -19,8 +19,8 @@ TEST(SelectionSort, empty)
 
 TEST(SelectionSort, one_element)
 {
-    std::vector<int> unsorted{ unsorted_1 };
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> unsorted { unsorted_1 };
+    std::vector<int> sorted { unsorted };
 
     selection_sort(unsorted);
     std::ranges::sort(sorted);
@@ -30,8 +30,8 @@ TEST(SelectionSort, one_element)
 
 TEST(SelectionSort, ten_element)
 {
-    std::vector<int> unsorted{ unsorted_10 };
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> unsorted { unsorted_10 };
+    std::vector<int> sorted { unsorted };
 
     selection_sort(unsorted);
     std::ranges::sort(sorted);
@@ -41,8 +41,8 @@ TEST(SelectionSort, ten_element)
 
 TEST(SelectionSort, fifty_element)
 {
-    std::vector<int> unsorted{ unsorted_50 };
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> unsorted { unsorted_50 };
+    std::vector<int> sorted { unsorted };
 
     selection_sort(unsorted);
     std::ranges::sort(sorted);
@@ -52,18 +52,11 @@ TEST(SelectionSort, fifty_element)
 
 TEST(SelectionSort, hundred_element)
 {
-    std::vector<int> unsorted{ unsorted_100 };
-    std::vector<int> sorted{ unsorted };
+    std::vector<int> unsorted { unsorted_100 };
+    std::vector<int> sorted { unsorted };
 
     selection_sort(unsorted);
     std::ranges::sort(sorted);
 
     ASSERT_EQ(unsorted, sorted);
-}
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
 }

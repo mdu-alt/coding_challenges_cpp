@@ -1,6 +1,7 @@
-#include "SelectionSort.hpp"
+#include "selection_sort.hpp"
 
 #include <algorithm>
+#include <vector>
 
 void selection_sort(std::vector<int>& A) noexcept
 {

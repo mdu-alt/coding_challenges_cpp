@@ -1,6 +1,7 @@
-#include "InsertionSort.hpp"
+#include "insertion_sort.hpp"
 
 #include <algorithm>
+#include <vector>
 
 void insertion_sort(std::vector<int>& A) noexcept
 {

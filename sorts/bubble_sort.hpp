@@ -1,5 +1,5 @@
-#ifndef BUBBLE_SORT_HPP
-#define BUBBLE_SORT_HPP
+#ifndef SORTS__BUBBLE_SORT_HPP
+#define SORTS__BUBBLE_SORT_HPP
 
 #include <vector>
 

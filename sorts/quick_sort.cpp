@@ -1,6 +1,8 @@
-#include "QuickSort.hpp"
+#include "quick_sort.hpp"
 
 #include <algorithm>
+#include <iterator>
+#include <vector>
 
 using Iterator = std::vector<int>::iterator;
 

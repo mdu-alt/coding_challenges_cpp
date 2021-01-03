@@ -1,7 +1,9 @@
-#include "MergeSort.hpp"
+#include "merge_sort.hpp"
 
 #include <algorithm>
 #include <iterator>
+#include <utility>
+#include <vector>
 
 using Iterator = std::vector<int>::iterator;
 
