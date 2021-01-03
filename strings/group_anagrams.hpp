@@ -1,6 +1,10 @@
 #ifndef STRINGS__GROUP_ANAGRAMS
 #define STRINGS__GROUP_ANAGRAMS
 
+/**
+ * @file
+ */
+
 #include <set>
 #include <string>
 #include <vector>

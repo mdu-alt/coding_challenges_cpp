@@ -1,6 +1,10 @@
 #ifndef STRINGS__ALMOST_PALINDROME
 #define STRINGS__ALMOST_PALINDROME
 
+/**
+ * @file
+ */
+
 #include <string_view>
 
 namespace strings {

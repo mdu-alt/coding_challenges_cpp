@@ -1,6 +1,7 @@
 #include "almost_palindrome.hpp"
 
 #include <iterator>
+#include <string_view>
 
 namespace strings {
 

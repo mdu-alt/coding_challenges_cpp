@@ -1,6 +1,10 @@
 #ifndef STRINGS__NESTED_PARENTHESES
 #define STRINGS__NESTED_PARENTHESES
 
+/**
+ * @file
+ */
+
 #include <string_view>
 
 namespace strings {
