@@ -6,57 +6,61 @@
 #include "constants.hpp"
 #include "quick_sort.hpp"
 
-TEST(QuickSort, empty)
+namespace {
+
+TEST(quick_sort, empty)
 {
-    std::vector<int> unsorted;
-    std::vector<int> sorted { unsorted };
+    std::vector<int> empty;
+    std::vector<int> reference { empty };
 
-    quick_sort(unsorted);
-    std::ranges::sort(sorted);
+    sorts::quick_sort(empty);
+    std::ranges::sort(reference);
 
-    ASSERT_EQ(unsorted, sorted);
+    EXPECT_EQ(empty, reference);
 }
 
-TEST(QuickSort, one_element)
+TEST(quick_sort, one)
 {
-    std::vector<int> unsorted { unsorted_1 };
-    std::vector<int> sorted { unsorted };
+    std::vector<int> unsorted_1 { sorts::unsorted_1 };
+    std::vector<int> reference { unsorted_1 };
 
-    quick_sort(unsorted);
-    std::ranges::sort(sorted);
+    sorts::quick_sort(unsorted_1);
+    std::ranges::sort(reference);
 
-    ASSERT_EQ(unsorted, sorted);
+    EXPECT_EQ(unsorted_1, reference);
 }
 
-TEST(QuickSort, ten_element)
+TEST(quick_sort, ten)
 {
-    std::vector<int> unsorted { unsorted_10 };
-    std::vector<int> sorted { unsorted };
+    std::vector<int> unsorted_10 { sorts::unsorted_10 };
+    std::vector<int> reference { unsorted_10 };
 
-    quick_sort(unsorted);
-    std::ranges::sort(sorted);
+    sorts::quick_sort(unsorted_10);
+    std::ranges::sort(reference);
 
-    ASSERT_EQ(unsorted, sorted);
+    EXPECT_EQ(unsorted_10, reference);
 }
 
-TEST(QuickSort, fifty_element)
+TEST(quick_sort, fifty)
 {
-    std::vector<int> unsorted { unsorted_50 };
-    std::vector<int> sorted { unsorted };
+    std::vector<int> unsorted_50 { sorts::unsorted_50 };
+    std::vector<int> reference { unsorted_50 };
 
-    quick_sort(unsorted);
-    std::ranges::sort(sorted);
+    sorts::quick_sort(unsorted_50);
+    std::ranges::sort(reference);
 
-    ASSERT_EQ(unsorted, sorted);
+    EXPECT_EQ(unsorted_50, reference);
 }
 
-TEST(QuickSort, hundred_element)
+TEST(quick_sort, hundred)
 {
-    std::vector<int> unsorted { unsorted_100 };
-    std::vector<int> sorted { unsorted };
+    std::vector<int> unsorted_100 { sorts::unsorted_100 };
+    std::vector<int> reference { unsorted_100 };
 
-    quick_sort(unsorted);
-    std::ranges::sort(sorted);
+    sorts::quick_sort(unsorted_100);
+    std::ranges::sort(reference);
 
-    ASSERT_EQ(unsorted, sorted);
+    EXPECT_EQ(unsorted_100, reference);
 }
+
+} // namespace

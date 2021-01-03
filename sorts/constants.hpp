@@ -3,6 +3,8 @@
 
 #include <vector>
 
+namespace sorts {
+
 inline const std::vector<int> unsorted_1 { 5 };
 
 inline const std::vector<int> unsorted_10 { 18, 22, 3, 37, 44, 32, 3, 10, 32, 7 };
@@ -19,5 +21,7 @@ inline const std::vector<int> unsorted_100 { 335, 314, 328, 176, 345, 24,  335, 
                                              143, 339, 262, 341, 349, 143, 394, 27,  40,  57,  101, 259, 291, 236, 274,
                                              255, 177, 290, 342, 277, 355, 17,  386, 72,  404, 287, 320, 486, 331, 333,
                                              211, 254, 61,  162, 131, 397, 228, 157, 110, 67 };
+
+} // namespace sorts
 
 #endif

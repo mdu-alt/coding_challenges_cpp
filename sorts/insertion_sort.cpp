@@ -3,17 +3,21 @@
 #include <algorithm>
 #include <vector>
 
-void insertion_sort(std::vector<int>& A) noexcept
+namespace sorts {
+
+void insertion_sort(std::vector<int>& vector) noexcept
 {
-    if (A.empty()) {
+    if (vector.empty()) {
         return;
     }
 
-    for (auto i = A.begin() + 1; i != A.end(); ++i) {
+    for (auto i = vector.begin() + 1; i != vector.end(); ++i) {
         if (*i < *(i - 1)) {
-            for (auto j = i; j != A.begin() && *j < *(j - 1); --j) {
+            for (auto j = i; j != vector.begin() && *j < *(j - 1); --j) {
                 std::iter_swap(j - 1, j);
             }
         }
     }
 }
+
+} // namespace  sorts

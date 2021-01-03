@@ -4,20 +4,12 @@
 #include <iterator>
 #include <vector>
 
-using Iterator = std::vector<int>::iterator;
+namespace sorts {
 
-void quick_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noexcept;
-
-void quick_sort(std::vector<int>& A) noexcept
+void quick_sort_internal(std::vector<int>& vector, std::vector<int>::iterator begin,
+                         std::vector<int>::iterator end) noexcept
 {
-    quick_sort_internal(A, A.begin(), A.end());
-}
-
-// =====================================================================================================================
-
-void quick_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noexcept
-{
-    if (std::distance(begin, end) <= 1) {
+    if (std::distance(begin, end) < 2) {
         return;
     }
 
@@ -33,6 +25,13 @@ void quick_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noex
 
     std::iter_swap(tracker, pivot);
 
-    quick_sort_internal(A, begin, tracker);
-    quick_sort_internal(A, tracker + 1, end);
+    quick_sort_internal(vector, begin, tracker);
+    quick_sort_internal(vector, tracker + 1, end);
 }
+
+void quick_sort(std::vector<int>& vector) noexcept
+{
+    quick_sort_internal(vector, vector.begin(), vector.end());
+}
+
+} // namespace sorts

@@ -5,29 +5,21 @@
 #include <utility>
 #include <vector>
 
-using Iterator = std::vector<int>::iterator;
+namespace sorts {
 
-void merge_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noexcept;
-
-void merge_sort(std::vector<int>& A) noexcept
-{
-    merge_sort_internal(A, A.begin(), A.end());
-}
-
-// =====================================================================================================================
-
-void merge_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noexcept
+void merge_sort_internal(std::vector<int>& vector, std::vector<int>::iterator begin,
+                         std::vector<int>::iterator end) noexcept
 {
     auto size = std::distance(begin, end);
 
-    if (size <= 1) {
+    if (size < 2) {
         return;
     }
 
     auto boundary = begin + (size / 2);
 
-    merge_sort_internal(A, begin, boundary);
-    merge_sort_internal(A, boundary, end);
+    merge_sort_internal(vector, begin, boundary);
+    merge_sort_internal(vector, boundary, end);
 
     auto i = begin;
     auto j = boundary;
@@ -54,3 +46,10 @@ void merge_sort_internal(std::vector<int>& A, Iterator begin, Iterator end) noex
 
     std::move(sorted.begin(), sorted.end(), begin);
 }
+
+void merge_sort(std::vector<int>& vector) noexcept
+{
+    merge_sort_internal(vector, vector.begin(), vector.end());
+}
+
+} // namespace sorts

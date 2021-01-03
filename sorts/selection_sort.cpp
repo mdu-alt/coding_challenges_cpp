@@ -3,12 +3,14 @@
 #include <algorithm>
 #include <vector>
 
-void selection_sort(std::vector<int>& A) noexcept
+namespace sorts {
+
+void selection_sort(std::vector<int>& vector) noexcept
 {
-    for (auto i = A.begin(); i != A.end(); ++i) {
+    for (auto i = vector.begin(); i != vector.end(); ++i) {
         auto min_index = i;
 
-        for (auto j = i; j != A.end(); ++j) {
+        for (auto j = i; j != vector.end(); ++j) {
             if (*j < *min_index) {
                 min_index = j;
             }
@@ -17,3 +19,5 @@ void selection_sort(std::vector<int>& A) noexcept
         std::iter_swap(i, min_index);
     }
 }
+
+} // namespace sorts
