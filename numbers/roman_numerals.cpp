@@ -1,6 +1,9 @@
-#include "RomanNumerals.hpp"
+#include "roman_numerals.hpp"
 
+#include <string_view>
 #include <vector>
+
+namespace numbers {
 
 enum Letter
 {
@@ -14,8 +17,49 @@ enum Letter
     M = 0x40  // 1000
 };
 
-Letter map_to_letter(char ch) noexcept;
-int map_to_decimal(Letter symbol) noexcept;
+Letter map_to_letter(char ch) noexcept
+{
+    switch (ch) {
+    case 'M':
+        return M;
+    case 'D':
+        return D;
+    case 'C':
+        return C;
+    case 'L':
+        return L;
+    case 'X':
+        return X;
+    case 'V':
+        return V;
+    case 'I':
+        return I;
+    default:
+        return N;
+    }
+}
+
+int map_to_decimal(Letter symbol) noexcept
+{
+    switch (symbol) {
+    case M:
+        return 1000;
+    case D:
+        return 500;
+    case C:
+        return 100;
+    case L:
+        return 50;
+    case X:
+        return 10;
+    case V:
+        return 5;
+    case I:
+        return 1;
+    default:
+        return -1;
+    }
+}
 
 int roman_to_decimal(std::string_view roman) noexcept
 {
@@ -87,48 +131,4 @@ std::string decimal_to_roman(int decimal) noexcept
     return roman;
 }
 
-// =====================================================================================================================
-
-Letter map_to_letter(char ch) noexcept
-{
-    switch (ch) {
-    case 'M':
-        return M;
-    case 'D':
-        return D;
-    case 'C':
-        return C;
-    case 'L':
-        return L;
-    case 'X':
-        return X;
-    case 'V':
-        return V;
-    case 'I':
-        return I;
-    default:
-        return N;
-    }
-}
-
-int map_to_decimal(Letter symbol) noexcept
-{
-    switch (symbol) {
-    case M:
-        return 1000;
-    case D:
-        return 500;
-    case C:
-        return 100;
-    case L:
-        return 50;
-    case X:
-        return 10;
-    case V:
-        return 5;
-    case I:
-        return 1;
-    default:
-        return -1;
-    }
-}
+} // namespace numbers

@@ -10,7 +10,7 @@ include(GoogleTest)
 enable_testing()
 
 add_subdirectory(DataStructures)
-add_subdirectory(Numbers)
+add_subdirectory(numbers)
 add_subdirectory(sorts)
 add_subdirectory(strings)
 add_subdirectory(Trees)
