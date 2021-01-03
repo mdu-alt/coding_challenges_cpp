@@ -8,15 +8,15 @@ namespace sorts {
 void selection_sort(std::vector<int>& vector) noexcept
 {
     for (auto i = vector.begin(); i != vector.end(); ++i) {
-        auto min_index = i;
+        auto min = i;
 
         for (auto j = i; j != vector.end(); ++j) {
-            if (*j < *min_index) {
-                min_index = j;
+            if (*j < *min) {
+                min = j;
             }
         }
 
-        std::iter_swap(i, min_index);
+        std::iter_swap(i, min);
     }
 }
 

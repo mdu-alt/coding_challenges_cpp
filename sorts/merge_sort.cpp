@@ -28,11 +28,11 @@ void merge_sort_internal(std::vector<int>& vector, std::vector<int>::iterator be
 
     while (i != boundary && j != end) {
         if (*i < *j) {
-            sorted.emplace_back(*i);
+            sorted.push_back(*i);
             ++i;
         }
         else {
-            sorted.emplace_back(*j);
+            sorted.push_back(*j);
             ++j;
         }
     }

@@ -7,11 +7,15 @@ namespace sorts {
 
 void bubble_sort(std::vector<int>& vector) noexcept
 {
-    for (auto i = vector.rbegin(); i != vector.rend(); ++i) {
+    if (vector.empty()) {
+        return;
+    }
+
+    for (auto i = vector.end() - 1; i != vector.begin(); --i) {
         bool sorted { true };
 
-        for (auto j = vector.begin(); j != (i.base() - 1); ++j) {
-            if (*j > *(j + 1)) {
+        for (auto j = vector.begin(); j != i; ++j) {
+            if (*(j + 1) < *j) {
                 std::iter_swap(j, j + 1);
                 sorted = false;
             }
@@ -23,4 +27,4 @@ void bubble_sort(std::vector<int>& vector) noexcept
     }
 }
 
-} // namespace  sorts
+} // namespace sorts

@@ -12,7 +12,7 @@ namespace sorts {
 /**
  * @brief Perform a regular merge sort, in-place.
  *
- * @param[in] vector A reference to a vector of integers.
+ * @param[in,out] vector A reference to a vector of integers.
  */
 void merge_sort(std::vector<int>& vector) noexcept;
 
