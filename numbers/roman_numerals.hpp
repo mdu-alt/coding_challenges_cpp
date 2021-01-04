@@ -1,5 +1,5 @@
-#ifndef ROMAN_NUMERAL
-#define ROMAN_NUMERAL
+#ifndef NUMBERS__ROMAN_NUMERALS
+#define NUMBERS__ROMAN_NUMERALS
 
 /**
  * @file
@@ -11,9 +11,15 @@
 namespace numbers {
 
 /**
- * @brief Convert a string of roman numerals into decimal.
+ * @brief Convert a string of roman numerals to a decimal number.
  *
- * TODO
+ * @param[in] roman A string of roman numerals.
+ *
+ * @return A decimal representation of @p roman as a decimal number.<BR>
+ * `-1` in case of an invalid input, such as:
+ *     - invalid symbols (e.g. 'A', '3', '$')
+ *     - too many symbols in a row (e.g. "IIII", "VV")
+ *     - invalid subtract cases (e.g. "IIX", "IXI", "VL")
  */
 int roman_to_decimal(std::string_view roman) noexcept;
 

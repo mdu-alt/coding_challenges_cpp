@@ -7,7 +7,7 @@
 
 namespace {
 
-TEST(roman_numerals, to_decimal__single_char)
+TEST(roman_numerals, to_decimal__single_symbol)
 {
     std::pair roman_1 { "I", 1 };
     std::pair roman_2 { "X", 10 };
@@ -18,7 +18,7 @@ TEST(roman_numerals, to_decimal__single_char)
     EXPECT_EQ(numbers::roman_to_decimal(roman_3.first), roman_3.second);
 }
 
-TEST(roman_numerals, to_decimal__multi_char)
+TEST(roman_numerals, to_decimal__many_symbols)
 {
     std::pair roman_1 { "VI", 6 };
     std::pair roman_2 { "XXII", 22 };
@@ -40,7 +40,7 @@ TEST(roman_numerals, to_decimal__subtract)
     EXPECT_EQ(numbers::roman_to_decimal(roman_3.first), roman_3.second);
 }
 
-TEST(roman_numerals, to_decimal__incorrect)
+TEST(roman_numerals, to_decimal__invalid)
 {
     std::pair roman_1 { "A", -1 };
     std::pair roman_2 { "IIII", -1 };
@@ -48,7 +48,6 @@ TEST(roman_numerals, to_decimal__incorrect)
     std::pair roman_4 { "IIX", -1 };
     std::pair roman_5 { "IXI", -1 };
     std::pair roman_6 { "VX", -1 };
-    std::pair roman_7 { "IL", -1 };
 
     EXPECT_EQ(numbers::roman_to_decimal(roman_1.first), roman_1.second);
     EXPECT_EQ(numbers::roman_to_decimal(roman_2.first), roman_2.second);
@@ -56,7 +55,6 @@ TEST(roman_numerals, to_decimal__incorrect)
     EXPECT_EQ(numbers::roman_to_decimal(roman_4.first), roman_4.second);
     EXPECT_EQ(numbers::roman_to_decimal(roman_5.first), roman_5.second);
     EXPECT_EQ(numbers::roman_to_decimal(roman_6.first), roman_6.second);
-    EXPECT_EQ(numbers::roman_to_decimal(roman_7.first), roman_7.second);
 }
 
 // =====================================================================================================================

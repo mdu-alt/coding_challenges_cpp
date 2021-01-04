@@ -8,7 +8,7 @@
 
 namespace numbers {
 
-enum Letter
+enum Symbol
 {
     N,        // 0
     I = 0x1,  // 1
@@ -20,7 +20,7 @@ enum Letter
     M = 0x40  // 1000
 };
 
-Letter map_to_letter(char ch) noexcept
+Symbol map_to_symbol(char ch) noexcept
 {
     switch (ch) {
     case 'M':
@@ -42,7 +42,7 @@ Letter map_to_letter(char ch) noexcept
     }
 }
 
-int map_to_decimal(Letter symbol) noexcept
+int map_to_decimal(Symbol symbol) noexcept
 {
     switch (symbol) {
     case M:
@@ -68,29 +68,29 @@ int roman_to_decimal(std::string_view roman) noexcept
 {
     int decimal { 0 };
 
-    std::vector<Letter> previous_letters;
-    Letter previous { N };
-    Letter current { N };
-    Letter min { N };
+    std::vector<Symbol> previous_symbols;
+    Symbol previous { N };
+    Symbol current { N };
+    Symbol min { N };
 
     for (auto i = roman.crbegin(); i != roman.crend(); ++i) {
-        current = map_to_letter(*i);
+        current = map_to_symbol(*i);
 
         if (current == N || current < min) {
             return -1;
         }
 
-        if (!previous_letters.empty() && previous_letters.back() == current) {
-            previous_letters.push_back(current);
+        if (!previous_symbols.empty() && previous_symbols.back() == current) {
+            previous_symbols.push_back(current);
 
             // Invalid case: "IIII"
-            if (previous_letters.size() > 3) {
+            if (previous_symbols.size() > 3) {
                 return -1;
             }
         }
         else {
-            previous_letters.clear();
-            previous_letters.push_back(current);
+            previous_symbols.clear();
+            previous_symbols.push_back(current);
         }
 
         // Invalid cases: "VV", "LL", "DD"
@@ -102,14 +102,14 @@ int roman_to_decimal(std::string_view roman) noexcept
         if ((current & (I | X | C)) && current < previous && previous <= (current << 2)) {
             decimal -= map_to_decimal(current);
 
-            // Guard against (next iteration): "IIX"
+            // Guard against (for next iteration): "IIX"
             min = previous;
         }
         // Case: "VI"
         else if (current >= previous) {
             decimal += map_to_decimal(current);
 
-            // Guard against (next iteration): "IXI"
+            // Guard against (for next iteration): "IXI"
             if (previous != N) {
                 min = current;
             }

@@ -15,21 +15,22 @@ TEST(largest_binary_gap, any_gaps)
     EXPECT_EQ(numbers::largest_binary_gap(1376796946), 5); // 1376796946 = 0b1010010000100000100000100010010
 }
 
-TEST(largest_binary_gap, no_gap)
+TEST(largest_binary_gap, no_gaps)
 {
     EXPECT_EQ(numbers::largest_binary_gap(3), 0);  //  3 = 0b11
     EXPECT_EQ(numbers::largest_binary_gap(12), 0); // 12 = 0b1100
     EXPECT_EQ(numbers::largest_binary_gap(16), 0); // 16 = 0b10000
 }
 
-TEST(largest_binary_gap, lower_bound)
+TEST(largest_binary_gap, extremes)
 {
-    EXPECT_EQ(numbers::largest_binary_gap(1), 0); // 1 = 0b1
+    EXPECT_EQ(numbers::largest_binary_gap(0), 0);             // 0 = 0b0
+    EXPECT_EQ(numbers::largest_binary_gap(2'147'483'647), 0); // 2'147'483'647 = 0b1111111111111111111111111111111
 }
 
-TEST(largest_binary_gap, upper_bound)
+TEST(largest_binary_gap, invalid)
 {
-    EXPECT_EQ(numbers::largest_binary_gap(2'147'483'647), 0); // 2'147'483'647 = 0b1111111111111111111111111111111
+    EXPECT_EQ(numbers::largest_binary_gap(-1), -1);
 }
 
 } // namespace

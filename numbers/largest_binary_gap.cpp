@@ -6,9 +6,13 @@ namespace numbers {
 
 int largest_binary_gap(int n) noexcept
 {
+    if (n < 0) {
+        return -1;
+    }
+
     bool has_bit_1 { false };
     int accumulator { 0 };
-    int gaps { 0 };
+    int gap { 0 };
 
     while (n != 0) {
         if ((n & 1) == 0 && has_bit_1) {
@@ -17,14 +21,14 @@ int largest_binary_gap(int n) noexcept
         else if ((n & 1) == 1) {
             has_bit_1 = true;
 
-            gaps = std::max(accumulator, gaps);
+            gap = std::max(accumulator, gap);
             accumulator = 0;
         }
 
         n >>= 1;
     }
 
-    return gaps;
+    return gap;
 }
 
 } // namespace numbers

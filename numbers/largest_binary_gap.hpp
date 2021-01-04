@@ -8,15 +8,16 @@
 namespace numbers {
 
 /**
- * @brief Return the length of the largest binary gap of a number.
+ * @brief Return the length of the largest binary gap of a natural number.
  *
- * <BLOCKQUOTE>A _binary gap_ of a integer `N` is any maximal sequence of
+ * @remark A _binary gap_ of a natural number `n` is any maximal sequence of
  * consecutive zeros that is surrounded by ones in the binary representation of
- * `N`.</BLOCKQUOTE>
+ * `n`.
  *
- * @param[in] n An integer.
+ * @param[in] n A natural number.
  *
- * @return The length of the largest binary gap in @p n.
+ * @return The length of the largest binary gap of @p n.<BR>
+ * `-1` if @p n is negative.
  */
 int largest_binary_gap(int n) noexcept;
 
