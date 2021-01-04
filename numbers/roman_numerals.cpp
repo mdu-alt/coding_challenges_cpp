@@ -1,5 +1,8 @@
 #include "roman_numerals.hpp"
 
+#include <algorithm>
+#include <sstream>
+#include <string>
 #include <string_view>
 #include <vector>
 
@@ -127,6 +130,41 @@ int roman_to_decimal(std::string_view roman) noexcept
 std::string decimal_to_roman(int decimal) noexcept
 {
     std::string roman;
+
+    if (decimal < 1 || decimal > 3999) {
+        return roman;
+    }
+
+    std::ostringstream buffer;
+
+    // Each iteration, the loop works on each digit of the number (starting
+    // from the unit) and a limited set of symbols is used each time: "IVX",
+    // "XLC" and "CDM".
+    static const std::string symbols { "IVXLCDM" };
+    int offset { 0 };
+
+    while (decimal != 0) {
+        int digit = decimal % 10;
+
+        if (0 < digit && digit < 4) {
+            buffer << std::string(digit, symbols.at(offset));
+        }
+        else if (digit == 4) {
+            buffer << symbols.at(offset + 1) << symbols.at(offset);
+        }
+        else if (4 < digit && digit < 9) {
+            buffer << std::string(digit - 5, symbols.at(offset)) << symbols.at(offset + 1);
+        }
+        else if (digit == 9) {
+            buffer << symbols.at(offset + 2) << symbols.at(offset);
+        }
+
+        decimal /= 10;
+        offset += 2;
+    }
+
+    roman = buffer.str();
+    std::ranges::reverse(roman);
 
     return roman;
 }

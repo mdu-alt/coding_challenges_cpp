@@ -59,4 +59,36 @@ TEST(roman_numerals, to_decimal__incorrect)
     EXPECT_EQ(numbers::roman_to_decimal(roman_7.first), roman_7.second);
 }
 
+// =====================================================================================================================
+
+TEST(roman_numerals, to_numeral__valid)
+{
+    std::pair decimal_1 { 1, "I" };
+    std::pair decimal_2 { 45, "XLV" };
+    std::pair decimal_3 { 679, "DCLXXIX" };
+    std::pair decimal_4 { 3888, "MMMDCCCLXXXVIII" };
+    std::pair decimal_5 { 3999, "MMMCMXCIX" };
+
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_1.first), decimal_1.second);
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_2.first), decimal_2.second);
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_3.first), decimal_3.second);
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_4.first), decimal_4.second);
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_5.first), decimal_5.second);
+}
+
+TEST(roman_numerals, to_numeral__invalid)
+{
+    std::pair decimal_1 { -99, "" };
+    std::pair decimal_2 { -1, "" };
+    std::pair decimal_3 { 0, "" };
+    std::pair decimal_4 { 4000, "" };
+    std::pair decimal_5 { 4098, "" };
+
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_1.first), decimal_1.second);
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_2.first), decimal_2.second);
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_3.first), decimal_3.second);
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_4.first), decimal_4.second);
+    EXPECT_EQ(numbers::decimal_to_roman(decimal_5.first), decimal_5.second);
+}
+
 } // namespace
