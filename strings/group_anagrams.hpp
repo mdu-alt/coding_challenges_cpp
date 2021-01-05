@@ -14,11 +14,11 @@ namespace strings {
 /**
  * @brief Group anagrams together.
  *
- * <BLOCKQUOTE>An _anagram_ is a word or phrase formed by rearranging the
- * letters of a different word or phrase, typically using all the original
- * letters exactly once.</BLOCKQUOTE>
+ * @remark An _anagram_ is a word or phrase formed by rearranging the letters
+ * of a different word or phrase, typically using all the original letters
+ * exactly once.
  *
- * @param[in] word_list A `[0..n]` array of strings of `[0..n]` characters.
+ * @param[in] word_list A `[0..n]` vector of strings of `[0..n]` characters.
  *
  * @return The anagrams grouped together. The output upper set may group words
  * in any orders.

@@ -12,10 +12,9 @@ namespace strings {
 /**
  * @brief Tell if a string is almost a palindrome.
  *
- * <BLOCKQUOTE>A _palindrome_ is a string that is spelled the same backwards as
- * it is forwards, like "racecar." An _almost_ palindrome is a string that
- * turns into a palindrome by removing one (and only one) character.
- * </BLOCKQUOTE>
+ * @remark A _palindrome_ is a string that is spelled the same backwards as it
+ * is forwards, like "racecar." An _almost_ palindrome is a string that turns
+ * into a palindrome by removing one (and only one) character.
  *
  * @param[in] string A string of `[0..n]` characters.
  *
