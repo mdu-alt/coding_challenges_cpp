@@ -3,8 +3,8 @@
 
 #include <gtest/gtest.h>
 
-#include "constants.hpp"
 #include "selection_sort.hpp"
+#include "sorts.hpp"
 
 namespace {
 

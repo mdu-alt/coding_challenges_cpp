@@ -1,5 +1,5 @@
-#ifndef SORTS__CONSTANTS_HPP
-#define SORTS__CONSTANTS_HPP
+#ifndef SORTS__SORTS_HPP
+#define SORTS__SORTS_HPP
 
 #include <vector>
 

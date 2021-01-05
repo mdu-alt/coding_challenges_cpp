@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#include "constants.hpp"
+#include "sorts.hpp"
 #include "quick_sort.hpp"
 
 namespace {

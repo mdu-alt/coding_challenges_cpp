@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 
 #include "bubble_sort.hpp"
-#include "constants.hpp"
+#include "sorts.hpp"
 
 namespace {
 

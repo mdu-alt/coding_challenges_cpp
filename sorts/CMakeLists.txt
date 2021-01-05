@@ -15,7 +15,7 @@ add_executable(sorts
     selection_sort.cpp
     selection_sort.hpp
 
-    constants.hpp
+    sorts.hpp
     main.cpp
 )
 
