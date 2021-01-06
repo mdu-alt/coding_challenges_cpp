@@ -11,6 +11,7 @@ enable_testing()
 
 add_subdirectory(DataStructures)
 add_subdirectory(numbers)
+add_subdirectory(sequences)
 add_subdirectory(sorts)
 add_subdirectory(strings)
 add_subdirectory(trees)
