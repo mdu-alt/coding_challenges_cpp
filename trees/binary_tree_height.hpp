@@ -16,7 +16,7 @@ namespace trees {
  *
  * @return The height of @p tree.
  */
-int binary_tree_height(const Binary_tree const* tree) noexcept;
+int binary_tree_height(const Binary_tree* const tree) noexcept;
 
 } // namespace trees
 

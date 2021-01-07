@@ -6,7 +6,7 @@
 
 namespace trees {
 
-int binary_tree_height(Binary_tree* tree) noexcept
+int binary_tree_height(const Binary_tree* const tree) noexcept
 {
     int left_height { 0 };
     int right_height { 0 };

@@ -4,6 +4,7 @@ add_executable(trees
     binary_tree_height.hpp
 
     trees.hpp
+    trees.cpp
     main.cpp
 )
 
