@@ -1,4 +1,7 @@
 add_executable(numbers
+    digital_root_test.cpp
+    digital_root.cpp
+    digital_root.hpp
     largest_binary_gap_test.cpp
     largest_binary_gap.cpp
     largest_binary_gap.hpp
