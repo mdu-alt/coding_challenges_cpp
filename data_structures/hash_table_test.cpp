@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 
-#include "HashTable.hpp"
+#include "hash_table.hpp"
 
 const std::pair<std::string, int> kv1 = { "John DOE", 123 };
 const std::pair<std::string, int> kv2 = { "Alice DEE", 456 };
@@ -64,11 +64,4 @@ TEST(HashTable, remove)
     ASSERT_NO_THROW(ht.remove(kv2.first));
 
     ASSERT_TRUE(ht.is_empty());
-}
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
 }

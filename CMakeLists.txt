@@ -9,7 +9,7 @@ find_package(GTest REQUIRED)
 include(GoogleTest)
 enable_testing()
 
-add_subdirectory(DataStructures)
+add_subdirectory(data_structures)
 add_subdirectory(numbers)
 add_subdirectory(sequences)
 add_subdirectory(sorts)
