@@ -1,122 +1,93 @@
 #include "roman_numerals.hpp"
 
 #include <algorithm>
+#include <map>
 #include <sstream>
 #include <string>
 #include <string_view>
-#include <vector>
 
 namespace numbers {
 
 enum Symbol
 {
-    N,        // 0
-    I = 0x1,  // 1
-    V = 0x2,  // 5
-    X = 0x4,  // 10
-    L = 0x8,  // 50
-    C = 0x10, // 100
-    D = 0x20, // 500
-    M = 0x40  // 1000
+    I = 1,      // 1
+    V = I << 1, // 5
+    X = V << 1, // 10
+    L = X << 1, // 50
+    C = L << 1, // 100
+    D = C << 1, // 500
+    M = D << 1, // 1000
+    N = M << 1
 };
 
 Symbol map_to_symbol(char ch) noexcept
 {
-    switch (ch) {
-    case 'M':
-        return M;
-    case 'D':
-        return D;
-    case 'C':
-        return C;
-    case 'L':
-        return L;
-    case 'X':
-        return X;
-    case 'V':
-        return V;
-    case 'I':
-        return I;
-    default:
-        return N;
+    static const std::map<char, Symbol> mapping { { 'I', I }, { 'V', V }, { 'X', X }, { 'L', L },
+                                                  { 'C', C }, { 'D', D }, { 'M', M } };
+
+    if (mapping.contains(ch)) {
+        return mapping.at(ch);
     }
+
+    return N;
 }
 
 int map_to_decimal(Symbol symbol) noexcept
 {
-    switch (symbol) {
-    case M:
-        return 1000;
-    case D:
-        return 500;
-    case C:
-        return 100;
-    case L:
-        return 50;
-    case X:
-        return 10;
-    case V:
-        return 5;
-    case I:
-        return 1;
-    default:
-        return -1;
+    static const std::map<Symbol, int> mapping { { I, 1 },   { V, 5 },   { X, 10 },  { L, 50 },
+                                                 { C, 100 }, { D, 500 }, { M, 1000 } };
+
+    if (mapping.contains(symbol)) {
+        return mapping.at(symbol);
     }
+
+    return 0;
 }
 
 int roman_to_decimal(std::string_view roman) noexcept
 {
     int decimal { 0 };
 
-    std::vector<Symbol> previous_symbols;
-    Symbol previous { N };
-    Symbol current { N };
-    Symbol min { N };
+    Symbol previous { M };
+    Symbol max { N };
+    int accumulator { 0 };
 
-    for (auto i = roman.crbegin(); i != roman.crend(); ++i) {
-        current = map_to_symbol(*i);
+    for (auto&& ch : roman) {
+        Symbol current { map_to_symbol(ch) };
 
-        if (current == N || current < min) {
+        // Invalid cases: "A" / "3" / "$" / "VV" / "VIV" / "IXI" / "CMC"
+        if (current == N || current >= max) {
             return -1;
         }
 
-        if (!previous_symbols.empty() && previous_symbols.back() == current) {
-            previous_symbols.push_back(current);
+        // Invalid cases: "IIX" / "CCM"
+        if (accumulator == 2 && current > previous) {
+            return -1;
+        }
 
-            // Invalid case: "IIII"
-            if (previous_symbols.size() > 3) {
+        // Invalid cases: "IIII" / "CCCC"
+        if (current == previous) {
+            if (accumulator++; accumulator > 3) {
                 return -1;
             }
         }
         else {
-            previous_symbols.clear();
-            previous_symbols.push_back(current);
+            accumulator = 1;
         }
 
-        // Invalid cases: "VV", "LL", "DD"
-        if (current & previous & (V | L | D)) {
-            return -1;
-        }
+        // Cases: "IV" / "CM"
+        if ((previous & (I | X | C)) && current > previous && current <= (previous << 2)) {
+            decimal += map_to_decimal(current) - 2 * map_to_decimal(previous);
 
-        // Case: "IV"
-        if ((current & (I | X | C)) && current < previous && previous <= (current << 2)) {
-            decimal -= map_to_decimal(current);
-
-            // Guard against (for next iteration): "IIX"
-            min = previous;
+            max = previous;
         }
-        // Case: "VI"
-        else if (current >= previous) {
+        // Case: "VI" / "CL"
+        else {
             decimal += map_to_decimal(current);
 
-            // Guard against (for next iteration): "IXI"
-            if (previous != N) {
-                min = current;
+            if (current & (V | L | D)) {
+                max = current;
             }
-        }
-        // Invalid cases: "VX", "IL"
-        else {
-            return -1;
         }
 
         previous = current;
