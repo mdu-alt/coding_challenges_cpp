@@ -14,12 +14,10 @@ namespace sequences {
  * @brief Return all maximal ascending sublists found in a sequence of
  * integers.
  *
- * @param[in] sequence A sequence of integers.
+ * @param[in] sequence A sequence of `[0..n]` integers.
  *
- * @note Duplicated sublists will be merged, and they will contain at least two
- * elements. @p sequence may be sorted or unsorted.
- *
- * @return All ascending sublists found in @p sequence.
+ * @return All ascending sublists found in @p sequence. A sublist will contain
+ * at least two elements.
  */
 std::set<std::set<int>> ascending_sublists(std::vector<int> sequence) noexcept;
 

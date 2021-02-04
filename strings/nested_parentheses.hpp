@@ -14,7 +14,7 @@ namespace strings {
  *
  * @param[in] string A string of `[0..n]` characters.
  *
- * @return The number of matching pairs of parentheses in @p string.
+ * @return The number of matching pairs of parentheses in @p string .
  */
 int count_parentheses_pairs(std::string_view string) noexcept;
 

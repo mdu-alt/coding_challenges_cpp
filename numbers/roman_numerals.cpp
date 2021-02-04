@@ -17,13 +17,14 @@ enum Symbol
     C = L << 1, // 100
     D = C << 1, // 500
     M = D << 1, // 1000
-    N = M << 1
+    N = M << 1  // special value (upper bound)
 };
 
 Symbol map_to_symbol(char ch) noexcept
 {
-    static const std::map<char, Symbol> mapping { { 'I', I }, { 'V', V }, { 'X', X }, { 'L', L },
-                                                  { 'C', C }, { 'D', D }, { 'M', M } };
+    static const std::map<char, Symbol> mapping {
+        { 'I', I }, { 'V', V }, { 'X', X }, { 'L', L }, { 'C', C }, { 'D', D }, { 'M', M },
+    };
 
     if (mapping.contains(ch)) {
         return mapping.at(ch);
@@ -34,8 +35,9 @@ Symbol map_to_symbol(char ch) noexcept
 
 int map_to_decimal(Symbol symbol) noexcept
 {
-    static const std::map<Symbol, int> mapping { { I, 1 },   { V, 5 },   { X, 10 },  { L, 50 },
-                                                 { C, 100 }, { D, 500 }, { M, 1000 } };
+    static const std::map<Symbol, int> mapping {
+        { I, 1 }, { V, 5 }, { X, 10 }, { L, 50 }, { C, 100 }, { D, 500 }, { M, 1000 },
+    };
 
     if (mapping.contains(symbol)) {
         return mapping.at(symbol);
@@ -46,11 +48,10 @@ int map_to_decimal(Symbol symbol) noexcept
 
 int roman_to_decimal(std::string_view roman) noexcept
 {
-    int decimal { 0 };
-
-    Symbol previous { M };
+    Symbol previous { N };
     Symbol max { N };
     int accumulator { 0 };
+    int decimal { 0 };
 
     for (auto&& ch : roman) {
         Symbol current { map_to_symbol(ch) };
@@ -100,12 +101,11 @@ int roman_to_decimal(std::string_view roman) noexcept
 
 std::string decimal_to_roman(int decimal) noexcept
 {
-    std::string roman;
-
     if (decimal < 1 || decimal > 3999) {
-        return roman;
+        return "";
     }
 
+    std::string roman;
     std::ostringstream buffer;
 
     // Each iteration, the loop works on each digit of the number (starting

@@ -17,7 +17,7 @@ namespace numbers {
  *
  * @return A decimal representation of @p roman as a decimal number.
  * @return `-1` in case of an invalid input, such as:
- *     - invalid symbols (e.g. 'A', '3', '$')
+ *     - invalid symbols (e.g. "A", "3", "$")
  *     - too many symbols in a row (e.g. "IIII", "VV")
  *     - invalid subtract cases (e.g. "IIX", "IXI", "VL")
  */

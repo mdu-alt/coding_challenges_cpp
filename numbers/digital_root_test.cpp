@@ -19,7 +19,6 @@ TEST(digital_root, any)
 TEST(digital_root, invalid)
 {
     EXPECT_EQ(numbers::digital_root(-1), -1);
-    EXPECT_EQ(numbers::digital_root(std::numeric_limits<int>::min() / 2), -1);
     EXPECT_EQ(numbers::digital_root(std::numeric_limits<int>::min()), -1);
 }
 

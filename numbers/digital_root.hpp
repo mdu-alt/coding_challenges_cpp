@@ -8,17 +8,17 @@
 namespace numbers {
 
 /**
- * @brief Finds the digital root of a natural number.
+ * @brief Finds the digital root of a positive integer.
  *
- * @remark The _digital root_ is the recursive sum of a number's digit, until a
- * single digit is obtained: e.g. `128 -> 11 -> 2`.
+ * @remark The _digital root_ of a positive integer is the recursive sum of the
+ * number's digits, until a single digit is obtained: e.g. `128 -> 11 -> 2`.
  *
- * @param[in] k A natural number.
+ * @param[in] n A positive integer.
  *
- * @return The digital root of @p k.
- * @return `-1` if @p k is negative.
+ * @return The digital root of @p n.
+ * @return `-1` if @p n is negative.
  */
-int digital_root(int k) noexcept;
+int digital_root(int n) noexcept;
 
 } // namespace numbers
 

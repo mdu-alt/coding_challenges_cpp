@@ -2,24 +2,24 @@
 
 namespace numbers {
 
-int digital_root(int k) noexcept
+int digital_root(int n) noexcept
 {
-    if (k < 0) {
+    if (n < 0) {
         return -1;
     }
 
-    while (k / 10 != 0) {
-        int l { 0 };
+    while (n / 10 != 0) {
+        int m { 0 };
 
-        while (k != 0) {
-            l += k % 10;
-            k /= 10;
+        while (n != 0) {
+            m += n % 10;
+            n /= 10;
         }
 
-        k = l;
+        n = m;
     }
 
-    return k;
+    return n;
 }
 
 } // namespace numbers

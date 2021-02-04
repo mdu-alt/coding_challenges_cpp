@@ -1,3 +1,5 @@
+#include <limits>
+
 #include <gtest/gtest.h>
 
 #include "largest_binary_gap.hpp"
@@ -24,13 +26,14 @@ TEST(largest_binary_gap, no_gaps)
 
 TEST(largest_binary_gap, extremes)
 {
-    EXPECT_EQ(numbers::largest_binary_gap(0), 0);             // 0 = 0b0
-    EXPECT_EQ(numbers::largest_binary_gap(2'147'483'647), 0); // 2'147'483'647 = 0b1111111111111111111111111111111
+    EXPECT_EQ(numbers::largest_binary_gap(0), 0);                               //     0 = 0b0
+    EXPECT_EQ(numbers::largest_binary_gap(std::numeric_limits<int>::max()), 0); // max() ~ 0b1111111111...
 }
 
 TEST(largest_binary_gap, invalid)
 {
     EXPECT_EQ(numbers::largest_binary_gap(-1), -1);
+    EXPECT_EQ(numbers::largest_binary_gap(std::numeric_limits<int>::min()), -1);
 }
 
 } // namespace

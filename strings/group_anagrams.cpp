@@ -1,28 +1,28 @@
 #include "group_anagrams.hpp"
 
 #include <algorithm>
+#include <map>
 #include <set>
 #include <string>
-#include <unordered_map>
 #include <vector>
 
 namespace strings {
 
-std::set<std::set<std::string>> group_anagrams(const std::vector<std::string>& word_list) noexcept
+std::set<std::set<std::string>> group_anagrams(const std::vector<std::string>& strings) noexcept
 {
-    std::unordered_map<std::string, std::set<std::string>> word_anagrams;
+    std::map<std::string, std::set<std::string>> mapping;
 
-    for (auto&& word : word_list) {
-        auto sorted_word = word;
+    for (auto&& string : strings) {
+        auto sorted = string;
 
-        std::ranges::sort(sorted_word);
+        std::ranges::sort(sorted);
 
-        word_anagrams[sorted_word].insert(word);
+        mapping[sorted].insert(string);
     }
 
     std::set<std::set<std::string>> anagrams;
 
-    for (auto&& [key, value] : word_anagrams) {
+    for (auto&& [key, value] : mapping) {
         anagrams.insert(value);
     }
 

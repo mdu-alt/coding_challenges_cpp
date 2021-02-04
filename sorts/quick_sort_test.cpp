@@ -3,8 +3,8 @@
 
 #include <gtest/gtest.h>
 
-#include "sorts.hpp"
 #include "quick_sort.hpp"
+#include "sorts.hpp"
 
 namespace {
 

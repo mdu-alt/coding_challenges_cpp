@@ -1,7 +1,4 @@
 #include <limits>
-#include <string>
-#include <utility>
-#include <vector>
 
 #include <gtest/gtest.h>
 
@@ -9,99 +6,64 @@
 
 namespace {
 
-struct roman_to_decimal_struct {
-    std::string roman;
-    int decimal;
-};
-
 TEST(roman_numerals, to_decimal__single_symbol)
 {
-    std::vector<roman_to_decimal_struct> test_cases {
-        { "I", 1 },
-        { "X", 10 },
-        { "D", 500 },
-        { "M", 1000 },
-    };
-
-    for (auto&& test_case : test_cases) {
-        EXPECT_EQ(numbers::roman_to_decimal(test_case.roman), test_case.decimal);
-    }
+    EXPECT_EQ(numbers::roman_to_decimal("I"), 1);
+    EXPECT_EQ(numbers::roman_to_decimal("X"), 10);
+    EXPECT_EQ(numbers::roman_to_decimal("D"), 500);
+    EXPECT_EQ(numbers::roman_to_decimal("M"), 1000);
 }
 
 TEST(roman_numerals, to_decimal__many_symbols)
 {
-    std::vector<roman_to_decimal_struct> test_cases {
-        { "VIII", 8 },
-        { "XXII", 22 },
-        { "DCLVI", 656 },
-        { "MCLXVII", 1167 },
-    };
-
-    for (auto&& test_case : test_cases) {
-        EXPECT_EQ(numbers::roman_to_decimal(test_case.roman), test_case.decimal);
-    }
+    EXPECT_EQ(numbers::roman_to_decimal("VIII"), 8);
+    EXPECT_EQ(numbers::roman_to_decimal("XXII"), 22);
+    EXPECT_EQ(numbers::roman_to_decimal("DCLVI"), 656);
+    EXPECT_EQ(numbers::roman_to_decimal("MCLXVII"), 1167);
 }
 
 TEST(roman_numerals, to_decimal__subtract)
 {
-    std::vector<roman_to_decimal_struct> test_cases {
-        { "IV", 4 },
-        { "XIX", 19 },
-        { "XLII", 42 },
-        { "MMCM", 2900 },
-    };
-
-    for (auto&& test_case : test_cases) {
-        EXPECT_EQ(numbers::roman_to_decimal(test_case.roman), test_case.decimal);
-    }
+    EXPECT_EQ(numbers::roman_to_decimal("IV"), 4);
+    EXPECT_EQ(numbers::roman_to_decimal("XIX"), 19);
+    EXPECT_EQ(numbers::roman_to_decimal("XLII"), 42);
+    EXPECT_EQ(numbers::roman_to_decimal("MMCM"), 2900);
 }
 
 TEST(roman_numerals, to_decimal__invalid)
 {
-    std::vector<roman_to_decimal_struct> test_cases {
-        { "A", -1 }, { "IIII", -1 }, { "VV", -1 }, { "IIX", -1 }, { "IXI", -1 }, { "VX", -1 }, { "VIV", -1 },
-    };
+    // Invalid symbol
+    EXPECT_EQ(numbers::roman_to_decimal("A"), -1);
 
-    for (auto&& test_case : test_cases) {
-        EXPECT_EQ(numbers::roman_to_decimal(test_case.roman), test_case.decimal);
-    }
+    // Too many symbols in a row
+    EXPECT_EQ(numbers::roman_to_decimal("IIII"), -1);
+    EXPECT_EQ(numbers::roman_to_decimal("VV"), -1);
+
+    // Invalid subtract
+    EXPECT_EQ(numbers::roman_to_decimal("IIX"), -1);
+    EXPECT_EQ(numbers::roman_to_decimal("IXI"), -1);
+    EXPECT_EQ(numbers::roman_to_decimal("VX"), -1);
+    EXPECT_EQ(numbers::roman_to_decimal("VIV"), -1);
 }
 
 // =====================================================================================================================
 
-struct decimal_to_roman_struct {
-    int decimal;
-    std::string roman;
-};
-
 TEST(roman_numerals, to_numeral__valid)
 {
-    std::vector<decimal_to_roman_struct> test_cases {
-        { 1, "I" },
-        { 176, "CLXXVI" },
-        { 345, "CCCXLV" },
-        { 2489, "MMCDLXXXIX" },
-        { 3888, "MMMDCCCLXXXVIII" },
-        { 3999, "MMMCMXCIX" },
-    };
-
-    for (auto&& test_case : test_cases) {
-        EXPECT_EQ(numbers::decimal_to_roman(test_case.decimal), test_case.roman);
-    }
+    EXPECT_EQ(numbers::decimal_to_roman(1), "I");
+    EXPECT_EQ(numbers::decimal_to_roman(176), "CLXXVI");
+    EXPECT_EQ(numbers::decimal_to_roman(345), "CCCXLV");
+    EXPECT_EQ(numbers::decimal_to_roman(2489), "MMCDLXXXIX");
+    EXPECT_EQ(numbers::decimal_to_roman(3888), "MMMDCCCLXXXVIII");
+    EXPECT_EQ(numbers::decimal_to_roman(3999), "MMMCMXCIX");
 }
 
 TEST(roman_numerals, to_numeral__invalid)
 {
-    std::vector<decimal_to_roman_struct> test_cases {
-        { std::numeric_limits<int>::min(), "" },
-        { 0, "" },
-        { 4000, "" },
-        { std::numeric_limits<int>::max(), "" },
-    };
-
-    for (auto&& test_case : test_cases) {
-        EXPECT_EQ(numbers::decimal_to_roman(test_case.decimal), test_case.roman);
-    }
+    EXPECT_EQ(numbers::decimal_to_roman(0), "");
+    EXPECT_EQ(numbers::decimal_to_roman(4000), "");
+    EXPECT_EQ(numbers::decimal_to_roman(std::numeric_limits<int>::min()), "");
+    EXPECT_EQ(numbers::decimal_to_roman(std::numeric_limits<int>::max()), "");
 }
 
 } // namespace

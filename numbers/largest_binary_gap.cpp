@@ -1,7 +1,5 @@
 #include "largest_binary_gap.hpp"
 
-#include <algorithm>
-
 namespace numbers {
 
 int largest_binary_gap(int n) noexcept
@@ -20,8 +18,7 @@ int largest_binary_gap(int n) noexcept
         }
         else if ((n & 1) == 1) {
             has_bit_1 = true;
-
-            gap = std::max(accumulator, gap);
+            gap = accumulator > gap ? accumulator : gap;
             accumulator = 0;
         }
 
