@@ -7,10 +7,9 @@
 
 namespace sorts {
 
-void merge_sort_internal(std::vector<int>& vector, std::vector<int>::iterator begin,
-                         std::vector<int>::iterator end) noexcept
+void merge_sort(std::vector<int>::iterator begin, std::vector<int>::iterator end) noexcept
 {
-    auto size = std::distance(begin, end);
+    auto size = end - begin;
 
     if (size < 2) {
         return;
@@ -18,8 +17,8 @@ void merge_sort_internal(std::vector<int>& vector, std::vector<int>::iterator be
 
     auto boundary = begin + (size / 2);
 
-    merge_sort_internal(vector, begin, boundary);
-    merge_sort_internal(vector, boundary, end);
+    merge_sort(begin, boundary);
+    merge_sort(boundary, end);
 
     auto i = begin;
     auto j = boundary;
@@ -49,7 +48,7 @@ void merge_sort_internal(std::vector<int>& vector, std::vector<int>::iterator be
 
 void merge_sort(std::vector<int>& vector) noexcept
 {
-    merge_sort_internal(vector, vector.begin(), vector.end());
+    merge_sort(vector.begin(), vector.end());
 }
 
 } // namespace sorts

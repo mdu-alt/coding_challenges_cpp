@@ -5,22 +5,17 @@
 
 namespace sorts {
 
-inline const std::vector<int> unsorted_1 { 5 };
+inline const std::vector<int> empty {};
 
-inline const std::vector<int> unsorted_10 { 18, 22, 3, 37, 44, 32, 3, 10, 32, 7 };
+inline const std::vector<int> all_equal { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
 
-inline const std::vector<int> unsorted_50 { 138, 149, 78,  246, 138, 194, 9,   234, 21,  174, 5,   101, 35,
-                                            201, 3,   242, 4,   63,  211, 48,  174, 158, 138, 192, 68,  214,
-                                            131, 247, 189, 121, 201, 227, 183, 33,  138, 201, 153, 175, 194,
-                                            208, 180, 1,   234, 211, 155, 188, 87,  194, 5,   17 };
+inline const std::vector<int> increasing { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+inline const std::vector<int> decreasing { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
 
-inline const std::vector<int> unsorted_100 { 335, 314, 328, 176, 345, 24,  335, 213, 225, 483, 50,  261, 94,  235, 10,
-                                             169, 323, 393, 84,  275, 68,  133, 35,  85,  325, 381, 419, 427, 62,  308,
-                                             373, 373, 395, 297, 193, 470, 138, 321, 304, 28,  459, 91,  441, 356, 86,
-                                             327, 259, 436, 405, 315, 392, 243, 153, 301, 355, 266, 433, 303, 166, 299,
-                                             143, 339, 262, 341, 349, 143, 394, 27,  40,  57,  101, 259, 291, 236, 274,
-                                             255, 177, 290, 342, 277, 355, 17,  386, 72,  404, 287, 320, 486, 331, 333,
-                                             211, 254, 61,  162, 131, 397, 228, 157, 110, 67 };
+inline const std::vector<int> any_1 { 5 };
+inline const std::vector<int> any_5 { -1, 4, -1, -2, 3 };
+inline const std::vector<int> any_10 { -4, 9, 3, -2, 5, 6, 0, 0, 7, -1 };
+inline const std::vector<int> any_20 { 6, 6, -8, -20, 4, -6, -10, -16, 11, -4, 10, -1, 5, 12, 16, 7, 15, 4, -11, 17 };
 
 } // namespace sorts
 

@@ -7,10 +7,10 @@ namespace sorts {
 
 void selection_sort(std::vector<int>& vector) noexcept
 {
-    for (auto i = vector.begin(); i != vector.end(); ++i) {
+    for (auto i = vector.begin(); i < vector.end(); ++i) {
         auto min = i;
 
-        for (auto j = i; j != vector.end(); ++j) {
+        for (auto j = i + 1; j < vector.end(); ++j) {
             if (*j < *min) {
                 min = j;
             }

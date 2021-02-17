@@ -7,17 +7,18 @@ namespace sorts {
 
 void insertion_sort(std::vector<int>& vector) noexcept
 {
-    if (vector.empty()) {
-        return;
-    }
+    for (auto i = vector.begin() + 1; i < vector.end(); ++i) {
+        int x { *i };
+        auto j = i - 1;
 
-    for (auto i = vector.begin() + 1; i != vector.end(); ++i) {
-        if (*i < *(i - 1)) {
-            for (auto j = i; j != vector.begin() && *j < *(j - 1); --j) {
-                std::iter_swap(j - 1, j);
-            }
+        while (j >= vector.begin() && x < *j) {
+            --j;
         }
+
+        // Shift elements to the right, then assign x in-place.
+        std::copy(j + 1, i, j + 2);
+        *(j + 1) = x;
     }
 }
 
-} // namespace  sorts
+} // namespace sorts

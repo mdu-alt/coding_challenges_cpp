@@ -6,32 +6,41 @@
 
 namespace sorts {
 
-void quick_sort_internal(std::vector<int>& vector, std::vector<int>::iterator begin,
-                         std::vector<int>::iterator end) noexcept
+void quick_sort(std::vector<int>::iterator begin, std::vector<int>::iterator end) noexcept
 {
-    if (std::distance(begin, end) < 2) {
+    if (end - begin < 2) {
         return;
     }
 
-    auto pivot = end - 1;
-    auto tracker = begin;
+    auto i = begin;
+    auto j = end - 1;
 
-    for (auto i = begin; i != end; ++i) {
-        if (*i < *pivot) {
-            std::iter_swap(tracker, i);
-            ++tracker;
+    // Hoare partition scheme.
+    int pivot { *(i + (j - i) / 2) };
+
+    while (i <= j) {
+        while (*i < pivot) {
+            ++i;
+        }
+
+        while (pivot < *j) {
+            --j;
+        }
+
+        if (i <= j) {
+            std::iter_swap(i, j);
+            ++i;
+            --j;
         }
     }
 
-    std::iter_swap(tracker, pivot);
-
-    quick_sort_internal(vector, begin, tracker);
-    quick_sort_internal(vector, tracker + 1, end);
+    quick_sort(begin, i);
+    quick_sort(i, end);
 }
 
 void quick_sort(std::vector<int>& vector) noexcept
 {
-    quick_sort_internal(vector, vector.begin(), vector.end());
+    quick_sort(vector.begin(), vector.end());
 }
 
 } // namespace sorts
