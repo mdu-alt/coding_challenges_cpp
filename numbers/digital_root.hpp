@@ -8,15 +8,14 @@
 namespace numbers {
 
 /**
- * @brief Finds the digital root of a positive integer.
+ * @brief Compute the digital root of a positive integer.
  *
- * @remark The _digital root_ of a positive integer is the recursive sum of the
- * number's digits, until a single digit is obtained: e.g. `128 -> 11 -> 2`.
+ * @remark The _digital root_ of a positive integer is the recursive sum of its
+ * digits, until a single digit remains: e.g. `789 -> 7+8+9 = 24 -> 2+4 = 6`.
  *
- * @param[in] n A positive integer.
+ * @param[in] n A positive integer (`n >= 0`).
  *
- * @return The digital root of @p n.
- * @return `-1` if @p n is negative.
+ * @return The digital root of @p n .
  */
 int digital_root(int n) noexcept;
 

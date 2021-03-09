@@ -8,32 +8,30 @@ namespace {
 
 TEST(largest_binary_gap, any_gaps)
 {
-    EXPECT_EQ(numbers::largest_binary_gap(5), 1);  //  5 = 0b101
-    EXPECT_EQ(numbers::largest_binary_gap(9), 2);  //  9 = 0b1001
-    EXPECT_EQ(numbers::largest_binary_gap(17), 3); // 17 = 0b10001
+    EXPECT_EQ(numbers::largest_binary_gap(5), 1);           //           5 = 0b101
+    EXPECT_EQ(numbers::largest_binary_gap(9), 2);           //           9 = 0b1001
+    EXPECT_EQ(numbers::largest_binary_gap(2'546), 2);       //       2'546 = 0b1001'1111'0010
+    EXPECT_EQ(numbers::largest_binary_gap(220'267'537), 5); // 220'267'537 = 0b1101'0010'0001'0000'0100'0001'0001
 
-    EXPECT_EQ(numbers::largest_binary_gap(20), 1);         //         20 = 0b10100
-    EXPECT_EQ(numbers::largest_binary_gap(2546), 2);       //       2546 = 0b100111110010
-    EXPECT_EQ(numbers::largest_binary_gap(1376796946), 5); // 1376796946 = 0b1010010000100000100000100010010
+    // 1'073'741'824 = 0b100'0000'0000'0000'0000'0000'0000'0001
+    EXPECT_EQ(numbers::largest_binary_gap(1'073'741'825), 29);
 }
 
 TEST(largest_binary_gap, no_gaps)
 {
-    EXPECT_EQ(numbers::largest_binary_gap(3), 0);  //  3 = 0b11
-    EXPECT_EQ(numbers::largest_binary_gap(12), 0); // 12 = 0b1100
-    EXPECT_EQ(numbers::largest_binary_gap(16), 0); // 16 = 0b10000
+    EXPECT_EQ(numbers::largest_binary_gap(1), 0);      //      1 = 0b1
+    EXPECT_EQ(numbers::largest_binary_gap(3), 0);      //      3 = 0b11
+    EXPECT_EQ(numbers::largest_binary_gap(15), 0);     //     15 = 0b1111
+    EXPECT_EQ(numbers::largest_binary_gap(65'280), 0); // 65'280 = 0b1111'1111'0000'0000
 }
 
-TEST(largest_binary_gap, extremes)
+TEST(largest_binary_gap, min_max)
 {
-    EXPECT_EQ(numbers::largest_binary_gap(0), 0);                               //     0 = 0b0
-    EXPECT_EQ(numbers::largest_binary_gap(std::numeric_limits<int>::max()), 0); // max() ~ 0b1111111111...
-}
+    // 0 = 0b0
+    EXPECT_EQ(numbers::largest_binary_gap(0), 0);
 
-TEST(largest_binary_gap, invalid)
-{
-    EXPECT_EQ(numbers::largest_binary_gap(-1), -1);
-    EXPECT_EQ(numbers::largest_binary_gap(std::numeric_limits<int>::min()), -1);
+    // 2'147'483'647 = 0b111'1111'1111'1111'1111'1111'1111'1111
+    EXPECT_EQ(numbers::largest_binary_gap(2'147'483'647), 0);
 }
 
 } // namespace

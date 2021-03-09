@@ -8,16 +8,14 @@
 namespace numbers {
 
 /**
- * @brief Find the length of the largest binary gap of a positive integer.
+ * @brief Return the length of the largest binary gap of a positive integer.
  *
- * @remark A _binary gap_ of a positive integer `n` is any maximal sequence of
- * consecutive zeros that is surrounded by ones in the binary representation of
- * `n`.
+ * @remark A _binary gap_ of a positive integer is any maximal sequence of
+ * consecutive zeros that is surrounded by ones in its binary representation.
  *
- * @param[in] n A positive integer.
+ * @param[in] n A positive integer (`n >= 0`).
  *
- * @return The length of the largest binary gap of @p n.
- * @return `-1` if @p n is negative.
+ * @return The length of the largest binary gap of @p n .
  */
 int largest_binary_gap(int n) noexcept;
 
