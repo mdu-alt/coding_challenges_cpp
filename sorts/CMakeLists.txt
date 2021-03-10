@@ -2,6 +2,9 @@ add_executable(sorts
     bubble_sort_test.cpp
     bubble_sort.cpp
     bubble_sort.hpp
+    heap_sort_test.cpp
+    heap_sort.cpp
+    heap_sort.hpp
     insertion_sort_test.cpp
     insertion_sort.cpp
     insertion_sort.hpp
