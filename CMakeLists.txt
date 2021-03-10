@@ -10,6 +10,7 @@ include(GoogleTest)
 enable_testing()
 
 add_subdirectory(arrays)
+add_subdirectory(design)
 add_subdirectory(data_structures)
 add_subdirectory(numbers)
 add_subdirectory(sorts)
