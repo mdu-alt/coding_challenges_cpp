@@ -1,4 +1,4 @@
-add_executable(sequences
+add_executable(arrays
     ascending_sublists_test.cpp
     ascending_sublists.cpp
     ascending_sublists.hpp
@@ -6,5 +6,5 @@ add_executable(sequences
     main.cpp
 )
 
-target_link_libraries(sequences GTest::GTest)
-gtest_discover_tests(sequences)
+target_link_libraries(arrays GTest::GTest)
+gtest_discover_tests(arrays)

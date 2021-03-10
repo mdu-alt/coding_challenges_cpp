@@ -1,5 +1,5 @@
-#ifndef SEQUENCES__ASCENDING_SUBLISTS
-#define SEQUENCES__ASCENDING_SUBLISTS
+#ifndef ARRAYS__ASCENDING_SUBLISTS
+#define ARRAYS__ASCENDING_SUBLISTS
 
 /**
  * @file
@@ -8,7 +8,7 @@
 #include <set>
 #include <vector>
 
-namespace sequences {
+namespace arrays {
 
 /**
  * @brief Return all maximal ascending sublists found in a sequence of
@@ -21,6 +21,6 @@ namespace sequences {
  */
 std::set<std::set<int>> ascending_sublists(std::vector<int> sequence) noexcept;
 
-} // namespace sequences
+} // namespace arrays
 
 #endif

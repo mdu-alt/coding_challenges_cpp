@@ -4,7 +4,7 @@
 #include <set>
 #include <vector>
 
-namespace sequences {
+namespace arrays {
 
 std::set<std::set<int>> ascending_sublists(std::vector<int> sequence) noexcept
 {
@@ -32,4 +32,4 @@ std::set<std::set<int>> ascending_sublists(std::vector<int> sequence) noexcept
     return sublists;
 }
 
-} // namespace sequences
+} // namespace arrays
