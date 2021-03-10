@@ -1,22 +1,22 @@
 add_executable(sorts
-    bubble_sort_test.cpp
-    bubble_sort.cpp
-    bubble_sort.hpp
-    heap_sort_test.cpp
-    heap_sort.cpp
-    heap_sort.hpp
-    insertion_sort_test.cpp
-    insertion_sort.cpp
-    insertion_sort.hpp
-    merge_sort_test.cpp
-    merge_sort.cpp
-    merge_sort.hpp
-    quick_sort_test.cpp
-    quick_sort.cpp
-    quick_sort.hpp
-    selection_sort_test.cpp
-    selection_sort.cpp
-    selection_sort.hpp
+    bubble_test.cpp
+    bubble.cpp
+    bubble.hpp
+    heap_test.cpp
+    heap.cpp
+    heap.hpp
+    insertion_test.cpp
+    insertion.cpp
+    insertion.hpp
+    merge_test.cpp
+    merge.cpp
+    merge.hpp
+    quick_test.cpp
+    quick.cpp
+    quick.hpp
+    selection_test.cpp
+    selection.cpp
+    selection.hpp
 
     sorts.hpp
     main.cpp

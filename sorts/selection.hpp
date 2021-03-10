@@ -1,5 +1,5 @@
-#ifndef SORTS__SELECTION_SORT_HPP
-#define SORTS__SELECTION_SORT_HPP
+#ifndef SORTS__SELECTION_HPP
+#define SORTS__SELECTION_HPP
 
 /// @file
 

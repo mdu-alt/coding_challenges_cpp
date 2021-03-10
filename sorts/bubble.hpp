@@ -1,5 +1,5 @@
-#ifndef SORTS__BUBBLE_SORT_HPP
-#define SORTS__BUBBLE_SORT_HPP
+#ifndef SORTS__BUBBLE_HPP
+#define SORTS__BUBBLE_HPP
 
 /// @file
 

@@ -1,4 +1,4 @@
-#include "merge_sort.hpp"
+#include "merge.hpp"
 
 #include <algorithm>
 #include <iterator>

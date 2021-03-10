@@ -1,5 +1,5 @@
-#ifndef SORTS__MERGE_SORT_HPP
-#define SORTS__MERGE_SORT_HPP
+#ifndef SORTS__MERGE_HPP
+#define SORTS__MERGE_HPP
 
 /// @file
 

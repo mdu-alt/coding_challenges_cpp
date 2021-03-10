@@ -1,4 +1,4 @@
-#include "quick_sort.hpp"
+#include "quick.hpp"
 
 #include <algorithm>
 #include <iterator>

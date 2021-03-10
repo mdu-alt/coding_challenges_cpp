@@ -3,40 +3,40 @@
 
 #include <gtest/gtest.h>
 
-#include "merge_sort.hpp"
+#include "heap.hpp"
 #include "sorts.hpp"
 
 namespace {
 
-TEST(merge, empty)
+TEST(heap, empty)
 {
     std::vector<int> empty { sorts::empty };
     std::vector<int> reference { empty };
 
-    sorts::merge(empty);
+    sorts::heap(empty);
     std::ranges::sort(reference);
 
     EXPECT_EQ(empty, reference);
 }
 
-TEST(merge, all_equal)
+TEST(heap, all_equal)
 {
     std::vector<int> all_equal { sorts::all_equal };
     std::vector<int> reference { all_equal };
 
-    sorts::merge(all_equal);
+    sorts::heap(all_equal);
     std::ranges::sort(reference);
 
     EXPECT_EQ(all_equal, reference);
 }
 
-TEST(merge, increasing_decreasing)
+TEST(heap, increasing_decreasing)
 {
     {
         std::vector<int> increasing { sorts::increasing };
         std::vector<int> reference { increasing };
 
-        sorts::merge(increasing);
+        sorts::heap(increasing);
         std::ranges::sort(reference);
 
         EXPECT_EQ(increasing, reference);
@@ -45,20 +45,20 @@ TEST(merge, increasing_decreasing)
         std::vector<int> decreasing { sorts::decreasing };
         std::vector<int> reference { decreasing };
 
-        sorts::merge(decreasing);
+        sorts::heap(decreasing);
         std::ranges::sort(reference);
 
         EXPECT_EQ(decreasing, reference);
     }
 }
 
-TEST(merge, any)
+TEST(heap, any)
 {
     {
         std::vector<int> any_1 { sorts::any_1 };
         std::vector<int> reference { any_1 };
 
-        sorts::merge(any_1);
+        sorts::heap(any_1);
         std::ranges::sort(reference);
 
         EXPECT_EQ(any_1, reference);
@@ -67,7 +67,7 @@ TEST(merge, any)
         std::vector<int> any_5 { sorts::any_5 };
         std::vector<int> reference { any_5 };
 
-        sorts::merge(any_5);
+        sorts::heap(any_5);
         std::ranges::sort(reference);
 
         EXPECT_EQ(any_5, reference);
@@ -76,7 +76,7 @@ TEST(merge, any)
         std::vector<int> any_10 { sorts::any_10 };
         std::vector<int> reference { any_10 };
 
-        sorts::merge(any_10);
+        sorts::heap(any_10);
         std::ranges::sort(reference);
 
         EXPECT_EQ(any_10, reference);
@@ -85,7 +85,7 @@ TEST(merge, any)
         std::vector<int> any_20 { sorts::any_20 };
         std::vector<int> reference { any_20 };
 
-        sorts::merge(any_20);
+        sorts::heap(any_20);
         std::ranges::sort(reference);
 
         EXPECT_EQ(any_20, reference);

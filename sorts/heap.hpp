@@ -1,5 +1,5 @@
-#ifndef SORTS__HEAP_SORT_HPP
-#define SORTS__HEAP_SORT_HPP
+#ifndef SORTS__HEAP_HPP
+#define SORTS__HEAP_HPP
 
 /// @file
 
