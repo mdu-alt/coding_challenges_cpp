@@ -5,7 +5,7 @@
 
 namespace sorts {
 
-void insertion_sort(std::vector<int>& vector) noexcept
+void insertion(std::vector<int>& vector) noexcept
 {
     for (auto i = vector.begin() + 1; i < vector.end(); ++i) {
         int x { *i };

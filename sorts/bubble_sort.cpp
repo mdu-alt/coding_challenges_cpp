@@ -5,7 +5,7 @@
 
 namespace sorts {
 
-void bubble_sort(std::vector<int>& vector) noexcept
+void bubble(std::vector<int>& vector) noexcept
 {
     auto i = vector.begin() + 1;
     auto j = vector.end();
@@ -20,6 +20,8 @@ void bubble_sort(std::vector<int>& vector) noexcept
             }
         }
 
+        // m == i: no swaps happened, vector is sorted
+        //   != i: vector[m:] is sorted, skip it next time
         j = m;
     }
 }

@@ -46,7 +46,7 @@ void merge_sort(std::vector<int>::iterator begin, std::vector<int>::iterator end
     std::move(sorted.begin(), sorted.end(), begin);
 }
 
-void merge_sort(std::vector<int>& vector) noexcept
+void merge(std::vector<int>& vector) noexcept
 {
     merge_sort(vector.begin(), vector.end());
 }

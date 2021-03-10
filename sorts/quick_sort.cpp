@@ -38,7 +38,7 @@ void quick_sort(std::vector<int>::iterator begin, std::vector<int>::iterator end
     quick_sort(i, end);
 }
 
-void quick_sort(std::vector<int>& vector) noexcept
+void quick(std::vector<int>& vector) noexcept
 {
     quick_sort(vector.begin(), vector.end());
 }

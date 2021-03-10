@@ -5,7 +5,7 @@
 
 namespace sorts {
 
-void selection_sort(std::vector<int>& vector) noexcept
+void selection(std::vector<int>& vector) noexcept
 {
     for (auto i = vector.begin(); i < vector.end(); ++i) {
         auto min = i;
