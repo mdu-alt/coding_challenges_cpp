@@ -7,8 +7,6 @@ AllowShortFunctionsOnASingleLine: Inline
 AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
 BreakBeforeBraces: Stroustrup
-Cpp11BracedListStyle: false
 InsertTrailingCommas: Wrapped
 PointerAlignment: Left
-SpaceBeforeCpp11BracedList: true
 ...

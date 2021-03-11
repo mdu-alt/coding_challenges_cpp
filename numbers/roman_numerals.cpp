@@ -22,8 +22,14 @@ enum Symbol
 
 Symbol map_to_symbol(char ch) noexcept
 {
-    static const std::map<char, Symbol> mapping {
-        { 'I', I }, { 'V', V }, { 'X', X }, { 'L', L }, { 'C', C }, { 'D', D }, { 'M', M },
+    static const std::unordered_map<char, Symbol> mapping{
+        {'I', I},
+        {'V', V},
+        {'X', X},
+        {'L', L},
+        {'C', C},
+        {'D', D},
+        {'M', M},
     };
 
     if (mapping.contains(ch)) {
@@ -35,8 +41,14 @@ Symbol map_to_symbol(char ch) noexcept
 
 int map_to_decimal(Symbol symbol) noexcept
 {
-    static const std::map<Symbol, int> mapping {
-        { I, 1 }, { V, 5 }, { X, 10 }, { L, 50 }, { C, 100 }, { D, 500 }, { M, 1000 },
+    static const std::unordered_map<Symbol, int> mapping{
+        {I, 1},
+        {V, 5},
+        {X, 10},
+        {L, 50},
+        {C, 100},
+        {D, 500},
+        {M, 1000},
     };
 
     if (mapping.contains(symbol)) {
@@ -48,13 +60,13 @@ int map_to_decimal(Symbol symbol) noexcept
 
 int roman_to_decimal(std::string_view roman) noexcept
 {
-    Symbol previous { N };
-    Symbol max { N };
-    int accumulator { 0 };
-    int decimal { 0 };
+    Symbol previous{N};
+    Symbol max{N};
+    int accumulator{0};
+    int decimal{0};
 
     for (auto&& ch : roman) {
-        Symbol current { map_to_symbol(ch) };
+        Symbol current{map_to_symbol(ch)};
 
         // Invalid cases: "A" / "3" / "$" / "VV" / "VIV" / "IXI" / "CMC"
         if (current == N || current >= max) {

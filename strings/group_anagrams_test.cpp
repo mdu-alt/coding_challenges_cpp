@@ -15,19 +15,19 @@ TEST(group_anagrams, empty)
 
 TEST(group_anagrams, one)
 {
-    EXPECT_EQ(strings::group_anagrams({ "hello" }), std::set<std::set<std::string>>({ { "hello" } }));
+    EXPECT_EQ(strings::group_anagrams({"hello"}), std::set<std::set<std::string>>({{"hello"}}));
 }
 
 TEST(group_anagrams, many)
 {
-    EXPECT_EQ(strings::group_anagrams({ "hello", "code", "cdeo", "ecod" }),
-              std::set<std::set<std::string>>({ { "ecod", "code", "cdeo" }, { "hello" } }));
+    EXPECT_EQ(strings::group_anagrams({"hello", "code", "cdeo", "ecod"}),
+              std::set<std::set<std::string>>({{"ecod", "code", "cdeo"}, {"hello"}}));
 }
 
 TEST(group_anagrams, duplicates)
 {
-    EXPECT_EQ(strings::group_anagrams({ "hello", "code", "cdeo", "ecod", "ecod", "ecod", "abc", "abc", "bac" }),
-              std::set<std::set<std::string>>({ { "hello" }, { "cdeo", "ecod", "code" }, { "abc", "bac" } }));
+    EXPECT_EQ(strings::group_anagrams({"hello", "code", "cdeo", "ecod", "ecod", "ecod", "abc", "abc", "bac"}),
+              std::set<std::set<std::string>>({{"hello"}, {"cdeo", "ecod", "code"}, {"abc", "bac"}}));
 }
 
 } // namespace

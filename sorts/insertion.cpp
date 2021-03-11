@@ -8,7 +8,7 @@ namespace sorts {
 void insertion(std::vector<int>& vector) noexcept
 {
     for (auto i = vector.begin() + 1; i < vector.end(); ++i) {
-        int x { *i };
+        int x{*i};
         auto j = i - 1;
 
         while (j >= vector.begin() && x < *j) {

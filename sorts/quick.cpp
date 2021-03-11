@@ -16,7 +16,7 @@ void quick_sort(std::vector<int>::iterator begin, std::vector<int>::iterator end
     auto j = end - 1;
 
     // Hoare partition scheme.
-    int pivot { *(i + (j - i) / 2) };
+    int pivot{*(i + (j - i) / 2)};
 
     while (i <= j) {
         while (*i < pivot) {
